@@ -15,11 +15,13 @@ function SearchInput({hideButtons = false, value}) {
 
     const onSearchClick = e => {
         e.preventDefault();
-        dispatch({
-            type: actionTypes.SET_SEARCH_TERM,
-            term: searchText
-        });
-        history.push('/search');
+        if(searchText){
+            dispatch({
+                type: actionTypes.SET_SEARCH_TERM,
+                term: searchText
+            });
+            history.push('/search');
+        }
     };
 
     const onSearchTextChange = e => {
